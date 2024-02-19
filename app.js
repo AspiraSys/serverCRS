@@ -19,7 +19,12 @@ app.use(
     parameterLimit: 50000,
   })
 );
-app.use(cors());
+const corsOptions = {
+  origin: "https://crs-server-3cf7.onrender.com",
+  credentials: true, //access-control-allow-credentials:true
+  optionSuccessStatus: 200,
+};
+app.use(cors(corsOptions));
 
 app.use('/job', jobRouter);
 app.use("/candidate", candidateRouter);

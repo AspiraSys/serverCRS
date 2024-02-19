@@ -21,6 +21,8 @@ app.use(
 );
 const corsOptions = {
   origin: "https://crs-server-3cf7.onrender.com",
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+
   credentials: true, //access-control-allow-credentials:true
   optionSuccessStatus: 200,
 };

@@ -20,7 +20,7 @@ app.use(
   })
 );
 const corsOptions = {
-  origin: "https://crs-server-3cf7.onrender.com",
+  origin: "http://localhost:3001",
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
 
   credentials: true, //access-control-allow-credentials:true

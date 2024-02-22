@@ -16,7 +16,7 @@ router.post("/create", (req, res) => {
   }
 
   const insertQuery = `
-    INSERT INTO crsCandidate (
+    INSERT INTO crscandidate (
       userName,
       mobile_number,
       email,

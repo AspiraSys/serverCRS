@@ -50,11 +50,9 @@ router.get("/:id", (req, res) => {
     }
 
     if (results.length === 0) {
-      return res
-        .status(404)
-        .json({
-          error: "Their is no such Candidate data in our cadidates Query",
-        });
+      return res.status(404).json({
+        error: "Their is no such Candidate data in our cadidates Query",
+      });
     }
 
     const corporateData = results[0];

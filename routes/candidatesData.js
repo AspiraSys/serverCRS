@@ -3,13 +3,7 @@ const router = express.Router();
 const connection = require("../config/dbConfig");
 
 router.post("/create", (req, res) => {
-  const {
-    userName,
-    mobile_number,
-    email,
-    resumes,
-    message,
-  } = req.body;
+  const { userName, mobile_number, email, resumes, message } = req.body;
 
   if (!userName || !mobile_number || !email) {
     return res.status(400).json({ error: "Missing required fields" });
@@ -25,13 +19,7 @@ router.post("/create", (req, res) => {
     ) VALUES (?, ?, ?, ?, ?)
   `;
 
-  const values = [
-    userName,
-    mobile_number,
-    email,
-    resumes,
-    message,
-  ];
+  const values = [userName, mobile_number, email, resumes, message];
 
   connection.query(insertQuery, values, (error, results) => {
     if (error) {
@@ -63,7 +51,11 @@ router.get("/:id", (req, res) => {
     }
 
     if (results.length === 0) {
-      return res.status(404).json({ error: "Their is no such Candidate data in our cadidates Query" });
+      return res
+        .status(404)
+        .json({
+          error: "Their is no such Candidate data in our cadidates Query",
+        });
     }
 
     const candidateData = results[0];
@@ -109,6 +101,5 @@ router.get("/download/:id", (req, res) => {
     res.send(resumesBuffer);
   });
 });
-
 
 module.exports = router;

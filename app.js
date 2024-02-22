@@ -1,13 +1,12 @@
 const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
-const connection = require('./config/dbConfig')
-const jobRouter = require('./routes/jobData')
-const candidateRouter = require('./routes/candidatesData')
-const corporateRouter = require('./routes/corporatesData')
+const connection = require("./config/dbConfig");
+const jobRouter = require("./routes/jobData");
+const candidateRouter = require("./routes/candidatesData");
+const corporateRouter = require("./routes/corporatesData");
 
 require("dotenv").config({ path: ".env" });
-
 
 const app = express();
 
@@ -22,12 +21,12 @@ app.use(
 const corsOptions = {
   origin: "*",
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-  credentials: true, //access-control-allow-credentials:true
+  credentials: true,
   optionSuccessStatus: 200,
 };
 app.use(cors(corsOptions));
 
-app.use('/job', jobRouter);
+app.use("/job", jobRouter);
 app.use("/candidate", candidateRouter);
 app.use("/corporate", corporateRouter);
 

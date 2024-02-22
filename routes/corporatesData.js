@@ -24,7 +24,7 @@ router.post("/create", (req, res) => {
   connection.query(insertQuery, values, (error, results) => {
     if (error) {
       console.error("Error executing INSERT query:", error);
-      return res.status(500).json({ error: "Internal Server Error" });
+      return res.status(500).json({ error: "Internal Server Error", error });
     }
 
     res.json({
